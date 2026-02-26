@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 15:16:22 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/24 10:56:54 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/26 22:56:14 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 t_stack	*create_stack(void)
 {
 	t_stack	*new_stack;
-	
-	if(!(new_stack = malloc(sizeof(t_stack))))
+
+	new_stack = malloc(sizeof(t_stack));
+	if (!new_stack)
 		return (NULL);
 	new_stack->root = NULL;
 	return (new_stack);
@@ -25,17 +26,18 @@ t_stack	*create_stack(void)
 t_node	*create_node(int value)
 {
 	t_node	*new_node;
-	
-	if(!(new_node = malloc(sizeof(t_node))))
-	return (NULL);
-new_node->index = -1;
-new_node->value = value;
-new_node->next = NULL;
-new_node->prev = NULL;
-return (new_node);
+
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->index = -1;
+	new_node->value = value;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
 }
 
-t_node *get_top(t_node *node)
+t_node	*get_top(t_node *node)
 {
 	if (node == NULL)
 		return (NULL);
@@ -44,7 +46,7 @@ t_node *get_top(t_node *node)
 	return (node);
 }
 
-t_node *get_bot(t_node *node)
+t_node	*get_bot(t_node *node)
 {
 	if (node == NULL)
 		return (NULL);

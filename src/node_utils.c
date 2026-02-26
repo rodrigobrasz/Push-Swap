@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:13:43 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/24 13:01:20 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/26 22:54:09 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,17 @@ t_node	*pop_bot(t_stack *stack)
 {
 	t_node	*pop;
 
-	if(!stack)
+	if (!stack)
 		return (0);
 	pop = get_bot(stack->root);
-	if(pop->prev)
+	if (pop->prev)
 		pop->next = NULL;
-	if(pop->next)
+	if (pop->next)
 		pop->next->prev = NULL;
 	stack->root = pop->next;
 	pop->next = NULL;
 	pop->prev = NULL;
-		return (pop);
+	return (pop);
 }
 
 int	size_list(t_node *lst)
