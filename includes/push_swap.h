@@ -36,7 +36,7 @@
 	void	free_stack(t_node *lst);
 
 	//Parsing Files:
-	int		duplicate_check(t_stack *stack_a);
+	int		check_duplicate(t_stack *stack_a, int nbr);
 	int		nbr_check(char *str);
 
 	//Indexation:
@@ -57,7 +57,6 @@
 	//Stack Helpers:
 	t_node *get_top(t_node *node);
 	t_node *get_bot(t_node *node);
-	void	push_to_stack(t_node *new_node, t_stack	*lst);
 	void	stack_fill(char **av, t_stack *stack_a);
 
 	//Utils:
@@ -68,13 +67,15 @@
 	void	pa(t_stack *stack_a, t_stack *stack_b);
 	void	pb(t_stack *stack_a, t_stack *stack_b);
 	void	ra(t_stack *stack_a, int wrt);
-	void	rra(t_stack	*stack_a);
-	void	rb(t_stack *stack_a, int wrt 	);
-	void	rrb(t_stack	*stack_b);
+	void	rra(t_stack	*stack_a, int wrt);
+	void	rb(t_stack *stack_a, int wrt);
+	void	rrb(t_stack	*stack_b, int wrt);
 	void	rr(t_stack *stack_a, t_stack *stack_b);
 	void	rrr(t_stack *stack_a, t_stack *stack_b);
-	void	sa(t_stack *stack_a);
-	void	sb(t_stack *stack_a);
+	void	sa(t_stack *stack_a, int wrt);
+	void	sb(t_stack *stack_a, int wrt);
 	void 	ss(t_stack *stack_a, t_stack *stack_b);
+	void	two_elements(t_stack *stack_a);
+
 
 	#endif

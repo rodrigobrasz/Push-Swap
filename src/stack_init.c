@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 15:16:22 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/22 23:54:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/24 10:56:54 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,6 @@ new_node->prev = NULL;
 return (new_node);
 }
 
-void	push_to_stack(t_node *new_node, t_stack *lst)
-{
-	if(!lst->root)
-	{
-		lst->root = new_node;
-			return ;
-	}
-	lst->root = get_top(lst->root);
-	lst->root->prev = new_node;
-	new_node->prev = lst->root;
-}
 t_node *get_top(t_node *node)
 {
 	if (node == NULL)

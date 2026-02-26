@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   short_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 20:59:59 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/24 10:59:16 by rodcaeta         ###   ########.fr       */
+/*   Created: 2026/02/26 22:26:37 by rodcaeta          #+#    #+#             */
+/*   Updated: 2026/02/26 22:29:41 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+void	two_elements(t_stack *stack_a)
 {
-	t_node *a;
-
-	if(!stack_a || !stack_b || !stack_b->root)
-		return ;
-	a = pop_top(stack_b);
-	add_top(stack_a, a);
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_stack *stack_a, t_stack *stack_b)
-{
-	t_node	*b;
-
-	if(!stack_a || !stack_b || !stack_a->root)
-		return ;
-	b = pop_top(stack_a);
-	add_top(stack_b, b);
-	write(1, "pb\n", 3);
+	t_
 }

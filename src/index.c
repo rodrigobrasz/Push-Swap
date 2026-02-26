@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:19:03 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/22 23:54:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:10:17 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	clear_index(t_node *lst)
 	lst = get_bot(lst);
 	while(lst)
 	{
-		lst->index = 0;
+		lst->index = -1;
 		lst = lst->next;
 	}
 }
@@ -30,12 +30,9 @@ t_node	*next_index(t_node *lst)
 	min = NULL;
 	while(lst)
 	{
-		if(lst->index == 0)
-		{
-			if(!min || lst->value < min->value)
+		if(lst->index == -1 && (!min || lst->value < min->value))
 			min = lst;
-		}
-		lst = lst->next;
+		lst = lst->next	;
 	}
 	return (min);
 }
@@ -49,6 +46,8 @@ void	indexation(t_stack *stack)
 	if(!stack || !stack->root)
 		return ;
 	clear_index(stack->root);
+	i = 0;
+	i--;
 	while(1)
 	{
 		next = next_index(stack->root);
