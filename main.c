@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 01:33:40 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:11:07 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,13 @@ int	main(int ac, char **av)
 	printf("================\n");
 	print_stack(stack_b);*/
 /*	print_stack(stack_a);*/
+	len = size_list(stack_a->root);
+	printf("=== ANTES do small_sort ===\n");
 	print_stack(stack_a);
 	printf("\n");
-	printf("=================\n");
-	small_sort(stack_a, stack_b, 3);
-	printf("\n");
+	small_sort(stack_a, stack_b, len);
+	printf("\nDEPOIS do small_sort\n");
 	print_stack(stack_a);
-	printf("\n");
-
 	free(stack_a);
 	free(stack_b);
 	return (0);

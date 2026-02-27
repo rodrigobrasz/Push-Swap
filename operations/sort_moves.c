@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   short_moves.c                                      :+:      :+:    :+:   */
+/*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:26:37 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 01:11:45 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:17:57 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	three_elements(t_stack *stack_a, int index)
 	biggest = find_index(stack_a, index);
 	if (!biggest)
 		return ;
-	if(biggest->index == stack_a->root->index)
+	if (biggest->index == stack_a->root->index)
 		ra(stack_a, 1);
 	else if (biggest->index == stack_a->root->next->index)
-		ra(stack_a, 1);
+		rra(stack_a, 1);
 	if(stack_a->root->index > stack_a->root->next->index)
 		sa(stack_a, 1);
 }
@@ -45,12 +45,14 @@ void	four_elements(t_stack *stack_a, t_stack *stack_b, int max, int min)
 {
 	t_node	*last_node;
 
-	last_node = get_bot(stack_a->root);
+	last_node = stack_a->root;
+	while (last_node->next)
+		last_node = last_node->next;
 	if (stack_a->root->next->index == min)
 		sa(stack_a, 1);
 	else if (last_node->index == min || last_node->prev->index == min)
 		while (stack_a->root->index != min)
-		ra(stack_a, 1);
+			rra(stack_a, 1);
 	if (stack_a->root->index == min)
 		pb (stack_a, stack_b);
 	three_elements (stack_a, max);

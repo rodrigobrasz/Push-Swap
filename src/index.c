@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:19:03 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/26 22:47:32 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:02:33 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	indexation(t_stack *stack)
 		return ;
 	clear_index (stack->root);
 	i = 0;
-	i--;
 	while (1)
 	{
 		next = next_index (stack->root);
