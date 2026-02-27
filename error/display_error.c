@@ -3,27 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   display_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:23:40 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/26 22:36:22 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 01:33:38 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_node *lst)
+void	free_stack(t_stack *stack)
 {
-	if (!lst)
+	t_node	*ref;
+	t_node	*next;
+	
+	if(!stack)
 		return ;
-	lst = get_bot (lst);
-	while (lst)
+	ref = stack->root;
+	while (ref)
 	{
-		free (lst->prev);
-		lst->prev = NULL;
-		lst = lst->next;
+		next = ref->next;
+		free(ref);
+		ref = next;
 	}
-	free (lst);
+	free(stack);
 }
 
 void	display_error(t_stack *stack_a, t_stack *stack_b)

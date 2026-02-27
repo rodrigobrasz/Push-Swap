@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 01:17:50 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 01:34:09 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stack
 
 //Erros File:
 void	display_error(t_stack *stack_a, t_stack *stack_b);
-void	free_stack(t_node *lst);
+void	free_stack(t_stack *stack);
 
 //Parsing Files:
 int		check_duplicate(t_stack *stack_a, int nbr);
