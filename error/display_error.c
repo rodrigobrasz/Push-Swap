@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:23:40 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 01:33:38 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:24:48 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	free_stack(t_stack *stack)
 
 void	display_error(t_stack *stack_a, t_stack *stack_b)
 {
-	free (stack_a);
-	free (stack_b);
+	free_stack (stack_a);
+	free_stack (stack_b);
 	write(2, "Error\n", 6);
 	exit (1);
 }

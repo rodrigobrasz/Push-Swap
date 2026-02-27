@@ -6,17 +6,17 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:26:37 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 02:17:57 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:36:40 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*find_index(t_stack *stack, int index)
+t_node	*find_index(t_stack *stack_a, int index)
 {
 	t_node	*node;
 
-	node = stack->root;
+	node = stack_a->root;
 	while(node)
 	{
 		if(node->index == index)
