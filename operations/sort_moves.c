@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:26:37 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 04:48:27 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 04:50:37 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ void	four_elements(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	if (stack_a->root->next->index == min)
 		sa(stack_a, 1);
 	else if (stack_a->root->next->next && stack_a->root->next->next->index == min)
-		ra(stack_a, 1); 
-	else if (last_node->index == min || last_node->prev->index == min)
-		while (stack_a->root->index != min)
-			rra(stack_a, 1);
+	{
+		ra(stack_a, 1);
+		ra(stack_a, 1);
+	}
+	else if (last_node->index == min)
+		rra(stack_a, 1);
 	if (stack_a->root->index == min)
 		pb (stack_a, stack_b);
 	three_elements (stack_a, max);
