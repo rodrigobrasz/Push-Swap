@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 21:00:02 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 02:22:36 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:40:36 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	rrb(t_stack	*stack_b, int wrt)
 
 	if (!stack_b || size_list(stack_b->root) < 2)
 		return ;
-	reverse_b = pop_top (stack_b);
+	reverse_b = pop_bot (stack_b);
 	add_top (stack_b, reverse_b);
 	if (wrt)
 		write(1, "rrb\n", 4);

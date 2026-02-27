@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 02:11:07 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:41:16 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	print_stack(t_stack *s)
 	if (!s || !s->root)
 		return (printf("(empty)\n"), (void)0);
 
-	cur = get_top(s->root);
+	cur = get_top(s->root);  // ← Começa do TOPO
 	while (cur && guard++ < 100)
 	{
 		printf("Value[%d]    Index[%d]\n", cur->value, cur->index);
-		cur = cur->prev;
+		cur = cur->prev;  // ← Vai pro BOT
 	}
 	if (cur)
 		printf("STOP:\n");

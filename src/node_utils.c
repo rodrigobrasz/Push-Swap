@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:13:43 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/26 22:54:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 02:46:06 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	add_top(t_stack *lst, t_node *new_top)
 {
-	t_node	*top;
+	t_node	*old_root;
 
 	if (!lst || !new_top)
 		return ;
@@ -25,10 +25,11 @@ void	add_top(t_stack *lst, t_node *new_top)
 		new_top->prev = NULL;
 		return ;
 	}
-	top = get_top(lst->root);
-	top->next = new_top;
-	new_top->prev = top;
-	new_top->next = NULL;
+	old_root = lst->root;
+	lst->root = new_top;           // ← Novo topo vira root
+	new_top->prev = NULL;
+	new_top->next = old_root;
+	old_root->prev = new_top;
 }
 
 void	add_bot(t_stack *lst, t_node *new_bot)
