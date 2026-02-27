@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/26 22:16:14 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 01:23:17 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	main(int ac, char **av)
 	print_stack(stack_a);
 	printf("\n");
 	printf("=================\n");
-	ra(stack_a, 1);
+	rra(stack_a, 1);
 	printf("\n");
 	print_stack(stack_a);
 	printf("\n");

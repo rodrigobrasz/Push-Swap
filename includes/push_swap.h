@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/26 22:44:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 01:17:50 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_node	*get_top(t_node *node);
 t_node	*get_bot(t_node *node);
 
 //Utils:
-char	**ft_split(char const *str, char delim);
+char	**ft_split(char *s, char c);
 long	ft_atol(const char *str);
 
 //Moves:
@@ -74,6 +74,11 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	sa(t_stack *stack_a, int wrt);
 void	sb(t_stack *stack_a, int wrt);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-void	two_elements(t_stack *stack_a);
+t_node	*find_index(t_stack *stack, int index);
+void	three_elements(t_stack *stack_a, int index);
+void	four_elements(t_stack *stack_a, t_stack *stack_bint, int max, int);
+void	five_elements(t_stack *stack_a, t_stack *stack_b);
+void	small_sort(t_stack *stack_a, t_stack *stack_b, int len);
+
 
 #endif

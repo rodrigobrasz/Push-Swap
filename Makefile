@@ -6,7 +6,7 @@
 #    By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/02 01:08:48 by rodcaeta          #+#    #+#              #
-#    Updated: 2026/02/26 22:26:33 by rodcaeta         ###   ########.fr        #
+#    Updated: 2026/02/27 00:09:28 by rodcaeta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ SRCS := \
 	operations/reverse.c \
 	operations/rotate.c \
 	operations/swap.c \
-	operations/short_moves.c
+	operations/short_moves.c \
+	utils/split.c \
+	utils/utils2.c
 
 OBJS := $(SRCS:.c=.o)
 #COLLORS ANSI =

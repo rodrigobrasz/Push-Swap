@@ -6,110 +6,97 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:13:43 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/22 23:54:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 00:09:28 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	*ft_freesplit(char **str)
+static int	word_count(const char *s, char c)
 {
-	size_t	i;
+	int	word_c;
+	int	x;
 
-	i = 0;
-	while (str[i])
+	word_c = 0;
+	x = 0;
+	while (s[x])
 	{
-		free (str[i]);
-		i++;
-	}
-	free (str);
-	return (NULL);
-}
-
-static char	*ft_fill_split(char const *str, char delim)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		while (str[i] != delim)
-			i++;
-		return (ft_substr(str, 0, i));
-	}
-	return (NULL);
-}
-
-static size_t	ft_count_words(const char *str, int delim)
-{
-	size_t	counter;
-	size_t	i;
-
-	i = 0;
-	counter = 0;
-	while (str[i])
-	{
-		while (str[i] && str[i] == delim)
-			i++;
-		if (str[i] && str[i] != delim)
+		if (s[x] != c)
 		{
-			counter++;
-			while (str[i] && str[i] != delim)
-				i++;
+			word_c += 1;
+			while (s[x] && s[x] != c)
+				x++;
+			continue ;
 		}
+		x++;
 	}
-	return (counter);
+	return (word_c);
 }
 
-char	**ft_split(char const *str, char delim)
+static char	*words(char const *s, char c)
 {
-	char	**result;
-	int		word_count;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
+	char	*words;
 
-	i = -1;
+	words = NULL;
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	words = malloc(sizeof(char) * (i + 1));
+	if (words == NULL)
+		return (NULL);
 	j = 0;
-	if (!str)
-		return (NULL);
-	word_count = ft_count_words(str, delim);
-	result = ft_calloc(word_count + 1, sizeof(char *));
-	if (!result)
-		return (NULL);
-	while (++i < word_count)
+	while (j < i)
 	{
-		while (str[j] && str[j] == delim)
-			j++;
-		result[i] = ft_fill_split(str + j, delim);
-		if (!result)
-			return (ft_freesplit(result), NULL);
-		while (str[j] && str[j] != delim)
-			j++;
+		words[j] = s[j];
+		j++;
 	}
-	result[i] = NULL;
-	return (result);
+	words[j] = '\0';
+	return (words);
 }
 
-long	ft_atol(const char *str)
+static char	**split(const char *s, char c, char **dest)
 {
-	long	sign;
-	long	result;
+	int	x;
+	int	y;
 
-	sign = 1;
-	result = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
+	x = 0;
+	y = 0;
+	while (s[x])
 	{
-		if (*str == '-')
-			sign = -sign;
-		str++;
+		if (s[x] != c)
+		{
+			dest[y] = words(&s[x], c);
+			if (dest[y] == NULL)
+			{
+				while (--y >= 0)
+					free(dest[y]);
+				free(dest);
+				return (NULL);
+			}
+			y++;
+			while (s[x] && s[x] != c)
+				x++;
+			continue ;
+		}
+		x++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*(str++) - '0');
-		if (result * sign < INT_MIN || result * sign > INT_MAX)
-			return (INT_MAX + 1L);
-	}
-	return (result * sign);
+	return (dest);
+}
+
+char	**ft_split(char *s, char c)
+{
+	size_t	wcount;
+	char	**dest;
+
+	if (!s)
+		return (NULL);
+	wcount = word_count(s, c);
+	dest = malloc(sizeof(char *) * (wcount + 1));
+	if (dest == NULL)
+		return (NULL);
+	dest[wcount] = NULL;
+	dest = split(s, c, dest);
+	return (dest);
 }
