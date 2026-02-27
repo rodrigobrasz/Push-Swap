@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 03:26:38 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/02/27 03:38:43 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int main(int ac, char **av)
 	indexation(stack_a);
 	(void)ac;
 
-	small_sort(stack_a, stack_b, 2);
+	small_sort(stack_a, stack_b, 3);
 	print_stack(stack_a);
 }
