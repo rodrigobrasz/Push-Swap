@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:13:43 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 00:09:28 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/01 13:58:37 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,19 @@ char	**ft_split(char *s, char c)
 	dest[wcount] = NULL;
 	dest = split(s, c, dest);
 	return (dest);
+}
+
+void	free_split(char **split)
+{
+	int	i;
+
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }

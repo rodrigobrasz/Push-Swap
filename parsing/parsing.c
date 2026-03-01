@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 23:18:00 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 13:23:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/01 13:59:16 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,30 @@ void	stack_fill(char **av, t_stack *stack_a)
 	{
 		j = 0;
 		nbrs = ft_split(av[i], ' ');
+		if (!nbrs)
+			return (display_error(stack_a, NULL));
 		while (nbrs[j])
 		{
 			if (!nbr_check(nbrs[j]))
+			{
+				free_split(nbrs);
 				return (display_error(stack_a, NULL));
+			}
 			nbr = atol (nbrs[j]);
 			if (nbr >= INT_MAX || nbr <= INT_MIN)
+			{
+				free_split(nbrs);
 				return (display_error(stack_a, NULL));
+			}
 			if (check_duplicate(stack_a, (int)nbr))
+			{
+				free_split(nbrs);
 				return (display_error(stack_a, NULL));
+			}
 			new_node = create_node (nbr);
 			add_bot (stack_a, new_node);
 			j++;
 		}
+		free_split(nbrs);
 	}
 }

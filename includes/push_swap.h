@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 13:34:13 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/01 14:00:30 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_node	*get_bot(t_node *node);
 
 //Utils:
 char	**ft_split(char *s, char c);
+void	free_split(char **split);
 long	ft_atol(const char *str);
 
 //Moves:
@@ -80,6 +81,5 @@ void	four_elements(t_stack *stack_a, t_stack *stack_bint, int max, int);
 void	five_elements(t_stack *stack_a, t_stack *stack_b);
 void	small_sort(t_stack *stack_a, t_stack *stack_b, int len);
 void	radix_sort(t_stack *stk_a, t_stack *stk_b, int len);
-
 
 #endif
