@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 13:18:48 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/01 13:36:53 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,20 @@ int main(int ac, char **av)
 {
 	t_stack *stack_a;
 	t_stack *stack_b;
+	int		len;
 
+	if (ac < 2)
+		return (0);
 	stack_a = create_stack();
 	stack_b = create_stack();
 	stack_fill(av, stack_a);
 	indexation(stack_a);
-	(void)ac;
+	len = size_list(stack_a->root);
 
-	small_sort(stack_a, stack_b, 5);
+	if (len <= 5)
+		small_sort(stack_a, stack_b, len);
+	else
+		radix_sort(stack_a, stack_b, len);
+
 	print_stack(stack_a);
 }
