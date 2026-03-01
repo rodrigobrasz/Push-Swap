@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 01:34:09 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/01 13:34:13 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	three_elements(t_stack *stack_a, int index);
 void	four_elements(t_stack *stack_a, t_stack *stack_bint, int max, int);
 void	five_elements(t_stack *stack_a, t_stack *stack_b);
 void	small_sort(t_stack *stack_a, t_stack *stack_b, int len);
+void	radix_sort(t_stack *stk_a, t_stack *stk_b, int len);
 
 
 #endif
