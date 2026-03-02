@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 14:00:30 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:15:24 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	free_stack(t_stack *stack);
 
 //Parsing Files:
 int		check_duplicate(t_stack *stack_a, int nbr);
+void	parse_arg(char *arg, t_stack *stack_a);
 int		nbr_check(char *str);
 
 //Indexation:

@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 23:18:00 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 13:59:16 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:15:24 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,44 +40,40 @@ int	nbr_check(char *str)
 	}
 	return (1);
 }
+	
+void	parse_arg(char *arg, t_stack *stack_a)
+{
+	char	**nbrs;
+	int		j;
+	long	nbr;
+
+	nbrs = ft_split(arg, ' ');
+	if (!nbrs || !nbrs[0] || nbrs[0][0] == '\0')
+		return (display_error(stack_a, NULL));
+	j = 0;
+	while (nbrs[j])
+	{
+		if (!nbr_check(nbrs[j]))
+			return (free_split(nbrs), display_error(stack_a, NULL));
+		nbr = atol(nbrs[j]);
+		if (nbr >= INT_MAX || nbr <= INT_MIN)
+			return (free_split(nbrs), display_error(stack_a, NULL));
+		if (check_duplicate(stack_a, (int)nbr))
+			return (free_split(nbrs), display_error(stack_a, NULL));
+		add_bot(stack_a, create_node(nbr));
+		j++;
+	}
+	free_split(nbrs);
+}
 
 void	stack_fill(char **av, t_stack *stack_a)
 {
-	int		i;
-	long	nbr;
-	t_node	*new_node;
-	char	**nbrs;
-	int		j;
+	int	i;
 
-	i = 0;
-	while (av[++i])
+	i = 1;
+	while (av[i])
 	{
-		j = 0;
-		nbrs = ft_split(av[i], ' ');
-		if (!nbrs)
-			return (display_error(stack_a, NULL));
-		while (nbrs[j])
-		{
-			if (!nbr_check(nbrs[j]))
-			{
-				free_split(nbrs);
-				return (display_error(stack_a, NULL));
-			}
-			nbr = atol (nbrs[j]);
-			if (nbr >= INT_MAX || nbr <= INT_MIN)
-			{
-				free_split(nbrs);
-				return (display_error(stack_a, NULL));
-			}
-			if (check_duplicate(stack_a, (int)nbr))
-			{
-				free_split(nbrs);
-				return (display_error(stack_a, NULL));
-			}
-			new_node = create_node (nbr);
-			add_bot (stack_a, new_node);
-			j++;
-		}
-		free_split(nbrs);
+		parse_arg(av[i], stack_a);
+		i++;
 	}
 }
