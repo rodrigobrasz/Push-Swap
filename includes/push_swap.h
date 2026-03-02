@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/02 12:15:24 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/02 14:10:18 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void	free_stack(t_stack *stack);
 
 //Parsing Files:
 int		check_duplicate(t_stack *stack_a, int nbr);
-void	parse_arg(char *arg, t_stack *stack_a);
+void	parse_arg(char *arg, t_stack *stack_a, t_stack *stack_b);
 int		nbr_check(char *str);
+int	is_sorted(t_node *lst);
 
 //Indexation:
 void	clear_index(t_node *lst);
@@ -55,7 +56,7 @@ void	add_top(t_stack *lst, t_node *new_top);
 int		size_list(t_node *lst);
 
 //Stack Helpers:
-void	stack_fill(char **av, t_stack *stack_a);
+void	stack_fill(char **av, t_stack *stack_a, t_stack *stack_b);
 t_node	*get_top(t_node *node);
 t_node	*get_bot(t_node *node);
 
