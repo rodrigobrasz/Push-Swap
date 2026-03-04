@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 00:19:25 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/03 11:05:34 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:26:10 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ int	is_sorted(t_node *lst)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	int		len;
 
 	if (ac < 2)
 		return (0);
 	stack_a = create_stack();
-	stack_fill(av, stack_a);
+	stack_fill (av, stack_a);
 	stack_b = create_stack();
 	if (is_sorted(stack_a->root))
 	{

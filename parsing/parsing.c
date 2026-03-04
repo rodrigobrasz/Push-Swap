@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 23:18:00 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/02 14:25:18 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 20:10:41 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int	check_duplicate(t_stack *stack_a, int nbr)
 
 int	nbr_check(char *str)
 {
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 		str++;
+	if (*str == 0)
+		return (0);
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
@@ -40,7 +42,7 @@ int	nbr_check(char *str)
 	}
 	return (1);
 }
-	
+
 void	parse_arg(char *arg, t_stack *stack_a)
 {
 	char	**nbrs;
@@ -56,7 +58,7 @@ void	parse_arg(char *arg, t_stack *stack_a)
 		if (!nbr_check(nbrs[j]))
 			return (free_split(nbrs), display_error(stack_a, NULL));
 		nbr = atol(nbrs[j]);
-		if (nbr >= INT_MAX || nbr <= INT_MIN)
+		if (nbr > INT_MAX || nbr < INT_MIN)
 			return (free_split(nbrs), display_error(stack_a, NULL));
 		if (check_duplicate(stack_a, (int)nbr))
 			return (free_split(nbrs), display_error(stack_a, NULL));

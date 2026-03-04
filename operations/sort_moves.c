@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:26:37 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/01 13:14:44 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 20:22:07 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ t_node	*find_index(t_stack *stack_a, int index)
 	t_node	*node;
 
 	node = stack_a->root;
-	while(node)
+	while (node)
 	{
-		if(node->index == index)
-			return(node);
+		if (node->index == index)
+			return (node);
 		node = node->next;
 	}
 	return (NULL);
@@ -37,34 +37,33 @@ void	three_elements(t_stack *stack_a, int index)
 		ra(stack_a, 1);
 	else if (biggest->index == stack_a->root->next->index)
 		rra(stack_a, 1);
-	if(stack_a->root->index > stack_a->root->next->index)
+	if (stack_a->root->index > stack_a->root->next->index)
 		sa(stack_a, 1);
 }
 
 void	four_elements(t_stack *stack_a, t_stack *stack_b, int max, int min)
 {
 	t_node	*last_node;
+	int		a;
 
 	last_node = stack_a->root;
 	while (last_node->next)
 		last_node = last_node->next;
-
+	a = stack_a->root->next->next->index;
 	if (stack_a->root->next && stack_a->root->next->index == min)
 		sa(stack_a, 1);
-	else if (stack_a->root->next && stack_a->root->next->next 
-	         && stack_a->root->next->next->index == min)
+	else if (stack_a->root->next && stack_a->root->next->next && a == min)
 	{
 		ra(stack_a, 1);
 		ra(stack_a, 1);
 	}
 	else if (last_node->index == min)
 		rra(stack_a, 1);
-	
 	if (stack_a->root->index == min)
 		pb (stack_a, stack_b);
 	three_elements (stack_a, max);
 	pa (stack_a, stack_b);
-}	 
+}
 
 void	five_elements(t_stack *stack_a, t_stack *stack_b)
 {
@@ -73,7 +72,7 @@ void	five_elements(t_stack *stack_a, t_stack *stack_b)
 
 	next = stack_a->root->next;
 	last = stack_a->root;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	if (next->index == 0)
 		sa(stack_a, 1);
@@ -89,9 +88,7 @@ void	five_elements(t_stack *stack_a, t_stack *stack_b)
 		pb (stack_a, stack_b);
 	four_elements(stack_a, stack_b, 4, 1);
 	pa (stack_a, stack_b);
-	
 }
-
 
 void	small_sort(t_stack *stack_a, t_stack *stack_b, int len)
 {

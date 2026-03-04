@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 14:59:32 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/02 16:08:38 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:28:52 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	sb(t_stack *stack_a, int wrt);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 t_node	*find_index(t_stack *stack, int index);
 void	three_elements(t_stack *stack_a, int index);
-void	four_elements(t_stack *stack_a, t_stack *stack_bint, int max, int);
+void	four_elements(t_stack *stack_a, t_stack *stack_bint, int max, int min);
 void	five_elements(t_stack *stack_a, t_stack *stack_b);
 void	small_sort(t_stack *stack_a, t_stack *stack_b, int len);
 void	radix_sort(t_stack *stk_a, t_stack *stk_b, int len);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:23:40 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/02/27 02:24:48 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:27:13 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void	free_stack(t_stack *stack)
 {
 	t_node	*ref;
 	t_node	*next;
-	
-	if(!stack)
+
+	if (!stack)
 		return ;
 	ref = stack->root;
 	while (ref)
 	{
 		next = ref->next;
-		free(ref);
+		free (ref);
 		ref = next;
 	}
-	free(stack);
+	free (stack);
 }
 
 void	display_error(t_stack *stack_a, t_stack *stack_b)
 {
 	free_stack (stack_a);
 	free_stack (stack_b);
-	write(2, "Error\n", 6);
+	write (2, "Error\n", 6);
 	exit (1);
 }

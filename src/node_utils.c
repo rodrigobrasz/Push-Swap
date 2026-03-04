@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rodcaeta <rodcaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:13:43 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/02 16:08:38 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:32:27 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_node	*pop_bot(t_stack *stack)
 		stack->root = NULL;
 	pop->prev = NULL;
 	pop->next = NULL;
-	
 	return (pop);
 }
 
