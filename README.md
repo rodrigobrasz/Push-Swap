@@ -57,7 +57,7 @@ Radix Sort is a non-comparative sorting algorithm that processes numbers digit b
 ## How to compile
 
 ```bash
-make (Rreate the executable)
+make (Create the executable)
 ```
 ```bash
 make clean/fclean (Remove the objects files and Remove the executable)
@@ -85,4 +85,6 @@ The program accepts numbers in three different formats:
 
 
 # RESOURCES
-- 
+- https://www.geeksforgeeks.org/dsa/radix-sort/
+- https://www.youtube.com/watch?v=dPwAA7j-8o4
+- I used an AI tool to gain a deeper understanding of how the algorithm works and to improve the formatting of my README.
