@@ -6,7 +6,7 @@
 /*   By: rodcaeta <rodcaeta@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 13:24:05 by rodcaeta          #+#    #+#             */
-/*   Updated: 2026/03/02 11:51:02 by rodcaeta         ###   ########.fr       */
+/*   Updated: 2026/03/07 01:00:00 by rodcaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	radix_sort(t_stack *stk_a, t_stack *stk_b, int len)
 			else
 				pb(stk_a, stk_b);
 			j++;
-		}
+		}z
 		while (stk_b->root)
 			pa(stk_a, stk_b);
 		i++;
